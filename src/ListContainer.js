@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, Text } from 'react-native';
+import Article from './Article';
 
 class ListContainer extends Component {
   constructor(props){
@@ -30,7 +31,8 @@ class ListContainer extends Component {
     let views = <Text>Loading.....</Text>
 
     if(stories && stories.length > 0){
-      views = stories.map(story => <Text key={ story.id }>{ story.title } by { story.by }</Text>);
+      // views = stories.map(story => <Text key={ story.id }>{ story.title } by { story.by }</Text>);
+      views = stories.map(story => <Article key={ story.id } story={ story }/>);
     }
 
     return (
