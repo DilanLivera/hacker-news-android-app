@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Linking } from 'react-native';
+import Button from './Button';
 
 class Article extends Component {
   constructor(props){
@@ -7,7 +8,7 @@ class Article extends Component {
   }
 
   render(){
-    let { title , by } = this.props.story;
+    let { title , by, url } = this.props.story;
     return(
       <View style={ styles.articleContainerStyles }>
         <Text>{ title }</Text>
@@ -15,6 +16,7 @@ class Article extends Component {
           by
           <Text style={ styles.byStyles }> { by } </Text>
         </Text>
+        <Button onPress={() => Linking.openURL(url)} >Visit Article</Button>
       </View>
     );
   }
